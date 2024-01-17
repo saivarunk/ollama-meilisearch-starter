@@ -1,0 +1,4 @@
+meilisearch
+python-dotenv
+jq
+langchain==0.0.338

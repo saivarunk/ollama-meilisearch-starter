@@ -1,0 +1,22 @@
+version: '3'
+services:
+  ollama:
+    image: ollama/ollama
+    volumes:
+      - ollama:/root/.ollama
+    ports:
+      - "11434:11434"
+    container_name: ollama
+  meilisearch:
+    image: getmeili/meilisearch:v1.5
+    ports:
+      - "7700:7700"
+    environment:
+      - MEILI_ENV=development
+      - MEILI_MASTER_KEY=ollama
+    volumes:
+      - meili_data:/meili_data
+
+volumes:
+  ollama:
+  meili_data:
